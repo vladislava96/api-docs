@@ -6,7 +6,12 @@
     },
     "servers": [
         {
-            "url": "https://localhost:8080/api"
+            "url": "https://http://143.42.31.53:8080/api",
+            "description": "Deployed"
+        },
+        {
+            "url": "http://localhost:8080/api",
+            "description": "Local"
         }
     ],
     "paths": {
