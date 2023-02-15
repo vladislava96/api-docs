@@ -743,7 +743,7 @@
                         "type": "string",
                         "example": "Project name"
                     },
-                    "owner": {
+                    "ownerId": {
                         "type": "integer",
                         "example": 1
                     }
