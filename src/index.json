@@ -6,7 +6,7 @@
     },
     "servers": [
         {
-            "url": "https://http://143.42.31.53:8080/api",
+            "url": "http://143.42.31.53:8080/api",
             "description": "Deployed"
         },
         {
