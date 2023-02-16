@@ -284,17 +284,7 @@
                 }
             }
         },
-        "/projects/{projectId}/tasks": {
-            "parameters": [
-                {
-                    "name": "projectId",
-                    "in": "path",
-                    "required": true,
-                    "schema": {
-                        "type": "integer"
-                    }
-                }
-            ],
+        "/tasks": {
             "get": {
                 "tags": [
                     "Task"
@@ -304,18 +294,22 @@
                         "ApiKey": []
                     }
                 ],
+                "parameters": [
+                    {
+                        "name": "projectId",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "$ref": "#/components/responses/TasksResponse"
                     },
                     "401": {
                         "$ref": "#/components/responses/UnauthorizedErrorResponse"
-                    },
-                    "403": {
-                        "$ref": "#/components/responses/AccessDeniedErrorResponse"
-                    },
-                    "404": {
-                        "$ref": "#/components/responses/NotFoundErrorResponse"
                     }
                 }
             },
@@ -356,16 +350,8 @@
                 }
             }
         },
-        "/projects/{projectId}/tasks/{taskId}": {
+        "/tasks/{taskId}": {
             "parameters": [
-                {
-                    "name": "projectId",
-                    "in": "path",
-                    "required": true,
-                    "schema": {
-                        "type": "integer"
-                    }
-                },
                 {
                     "name": "taskId",
                     "in": "path",
@@ -772,6 +758,9 @@
             "TaskCreation": {
                 "type": "object",
                 "properties": {
+                    "projectId": {
+                        "type": "integer"
+                    },
                     "status": {
                         "type": "string"
                     },
@@ -793,6 +782,9 @@
             "TaskUpdate": {
                 "type": "object",
                 "properties": {
+                    "projectId": {
+                        "type": "integer"
+                    },
                     "status": {
                         "type": "string"
                     },
@@ -815,6 +807,9 @@
                 "type": "object",
                 "properties": {
                     "id": {
+                        "type": "integer"
+                    },
+                    "ownerId": {
                         "type": "integer"
                     },
                     "projectId": {
