@@ -445,6 +445,311 @@
                     }
                 }
             }
+        },
+        "/boards": {
+            "get": {
+                "tags": [
+                    "Board"
+                ],
+                "security": [
+                    {
+                        "ApiKey": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/BoardsResponse"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/UnauthorizedErrorResponse"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Board"
+                ],
+                "security": [
+                    {
+                        "ApiKey": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BoardCreation"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "$ref": "#/components/responses/BoardResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ValidationErrorResponse"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/UnauthorizedErrorResponse"
+                    }
+                }
+            }
+        },
+        "/boards/{boardId}": {
+            "parameters": [
+                {
+                    "name": "boardId",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer"
+                    }
+                }
+            ],
+            "get": {
+                "tags": [
+                    "Board"
+                ],
+                "security": [
+                    {
+                        "ApiKey": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/BoardResponse"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/UnauthorizedErrorResponse"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/NotFoundErrorResponse"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Board"
+                ],
+                "security": [
+                    {
+                        "ApiKey": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BoardUpdate"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/BoardResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ValidationErrorResponse"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/UnauthorizedErrorResponse"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AccessDeniedErrorResponse"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/NotFoundErrorResponse"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Board"
+                ],
+                "security": [
+                    {
+                        "ApiKey": []
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/UnauthorizedErrorResponse"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AccessDeniedErrorResponse"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/NotFoundErrorResponse"
+                    }
+                }
+            }
+        },
+        "/cards": {
+            "get": {
+                "tags": [
+                    "Card"
+                ],
+                "security": [
+                    {
+                        "ApiKey": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "boardId",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/CardsResponse"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/UnauthorizedErrorResponse"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Card"
+                ],
+                "security": [
+                    {
+                        "ApiKey": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CardCreation"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "$ref": "#/components/responses/TasksResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ValidationErrorResponse"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/UnauthorizedErrorResponse"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AccessDeniedErrorResponse"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/NotFoundErrorResponse"
+                    }
+                }
+            }
+        },
+        "/cards/{cardId}": {
+            "parameters": [
+                {
+                    "name": "cardId",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer"
+                    }
+                }
+            ],
+            "get": {
+                "tags": [
+                    "Card"
+                ],
+                "security": [
+                    {
+                        "ApiKey": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/CardResponse"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/UnauthorizedErrorResponse"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AccessDeniedErrorResponse"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/NotFoundErrorResponse"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Card"
+                ],
+                "security": [
+                    {
+                        "ApiKey": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CardUpdate"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/CardResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/ValidationErrorResponse"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/UnauthorizedErrorResponse"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AccessDeniedErrorResponse"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/NotFoundErrorResponse"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Card"
+                ],
+                "security": [
+                    {
+                        "ApiToken": []
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/UnauthorizedErrorResponse"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AccessDeniedErrorResponse"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/NotFoundErrorResponse"
+                    }
+                }
+            }
         }
     },
     "components": {
@@ -582,6 +887,46 @@
                     "application/json": {
                         "schema": {
                             "$ref": "#/components/schemas/Tasks"
+                        }
+                    }
+                }
+            },
+            "BoardResponse": {
+                "description": "User board",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/Board"
+                        }
+                    }
+                }
+            },
+            "BoardsResponse": {
+                "description": "User boards",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/Boards"
+                        }
+                    }
+                }
+            },
+            "CardResponse": {
+                "description": "User project card",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/Card"
+                        }
+                    }
+                }
+            },
+            "CardsResponse": {
+                "description": "User project card",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/Cards"
                         }
                     }
                 }
@@ -837,6 +1182,104 @@
                 "type": "array",
                 "items": {
                     "$ref": "#/components/schemas/Task"
+                }
+            },
+            "BoardCreation": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "example": "Board name"
+                    }
+                }
+            },
+            "BoardUpdate": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "example": "Board name"
+                    }
+                }
+            },
+            "Board": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "title": {
+                        "type": "string",
+                        "example": "Board name"
+                    },
+                    "ownerId": {
+                        "type": "integer",
+                        "example": 1
+                    }
+                }
+            },
+            "Boards": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/components/schemas/Board"
+                }
+            },
+            "CardCreation": {
+                "type": "object",
+                "properties": {
+                    "boardId": {
+                        "type": "integer"
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "participant": {
+                        "type": "string"
+                    }
+                }
+            },
+            "CardUpdate": {
+                "type": "object",
+                "properties": {
+                    "boardId": {
+                        "type": "integer"
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "participant": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Card": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "participant": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Cards": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/components/schemas/Card"
                 }
             }
         }
