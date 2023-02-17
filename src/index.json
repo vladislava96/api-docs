@@ -218,6 +218,9 @@
                     "401": {
                         "$ref": "#/components/responses/UnauthorizedErrorResponse"
                     },
+                    "403": {
+                        "$ref": "#/components/responses/AccessDeniedErrorResponse"
+                    },
                     "404": {
                         "$ref": "#/components/responses/NotFoundErrorResponse"
                     }
@@ -462,6 +465,12 @@
                     },
                     "401": {
                         "$ref": "#/components/responses/UnauthorizedErrorResponse"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AccessDeniedErrorResponse"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/NotFoundErrorResponse"
                     }
                 }
             },
@@ -522,6 +531,9 @@
                     },
                     "401": {
                         "$ref": "#/components/responses/UnauthorizedErrorResponse"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AccessDeniedErrorResponse"
                     },
                     "404": {
                         "$ref": "#/components/responses/NotFoundErrorResponse"
