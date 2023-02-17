@@ -446,10 +446,10 @@
                 }
             }
         },
-        "/boards": {
+        "/columns": {
             "get": {
                 "tags": [
-                    "Board"
+                    "Column"
                 ],
                 "security": [
                     {
@@ -458,7 +458,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "$ref": "#/components/responses/BoardsResponse"
+                        "$ref": "#/components/responses/ColumnsResponse"
                     },
                     "401": {
                         "$ref": "#/components/responses/UnauthorizedErrorResponse"
@@ -467,7 +467,7 @@
             },
             "post": {
                 "tags": [
-                    "Board"
+                    "Column"
                 ],
                 "security": [
                     {
@@ -478,14 +478,14 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/BoardCreation"
+                                "$ref": "#/components/schemas/ColumnCreation"
                             }
                         }
                     }
                 },
                 "responses": {
                     "201": {
-                        "$ref": "#/components/responses/BoardResponse"
+                        "$ref": "#/components/responses/ColumnResponse"
                     },
                     "400": {
                         "$ref": "#/components/responses/ValidationErrorResponse"
@@ -496,10 +496,10 @@
                 }
             }
         },
-        "/boards/{boardId}": {
+        "/columns/{columnId}": {
             "parameters": [
                 {
-                    "name": "boardId",
+                    "name": "columnId",
                     "in": "path",
                     "required": true,
                     "schema": {
@@ -509,7 +509,7 @@
             ],
             "get": {
                 "tags": [
-                    "Board"
+                    "Column"
                 ],
                 "security": [
                     {
@@ -518,7 +518,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "$ref": "#/components/responses/BoardResponse"
+                        "$ref": "#/components/responses/ColumnResponse"
                     },
                     "401": {
                         "$ref": "#/components/responses/UnauthorizedErrorResponse"
@@ -530,7 +530,7 @@
             },
             "put": {
                 "tags": [
-                    "Board"
+                    "Column"
                 ],
                 "security": [
                     {
@@ -541,14 +541,14 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/BoardUpdate"
+                                "$ref": "#/components/schemas/ColumnUpdate"
                             }
                         }
                     }
                 },
                 "responses": {
                     "200": {
-                        "$ref": "#/components/responses/BoardResponse"
+                        "$ref": "#/components/responses/ColumnResponse"
                     },
                     "400": {
                         "$ref": "#/components/responses/ValidationErrorResponse"
@@ -566,7 +566,7 @@
             },
             "delete": {
                 "tags": [
-                    "Board"
+                    "Column"
                 ],
                 "security": [
                     {
@@ -601,7 +601,7 @@
                 ],
                 "parameters": [
                     {
-                        "name": "boardId",
+                        "name": "columnId",
                         "in": "query",
                         "required": false,
                         "schema": {
@@ -638,7 +638,7 @@
                 },
                 "responses": {
                     "201": {
-                        "$ref": "#/components/responses/TasksResponse"
+                        "$ref": "#/components/responses/CardResponse"
                     },
                     "400": {
                         "$ref": "#/components/responses/ValidationErrorResponse"
@@ -891,22 +891,22 @@
                     }
                 }
             },
-            "BoardResponse": {
-                "description": "User board",
+            "ColumnResponse": {
+                "description": "User column",
                 "content": {
                     "application/json": {
                         "schema": {
-                            "$ref": "#/components/schemas/Board"
+                            "$ref": "#/components/schemas/Column"
                         }
                     }
                 }
             },
-            "BoardsResponse": {
-                "description": "User boards",
+            "ColumnsResponse": {
+                "description": "User columns",
                 "content": {
                     "application/json": {
                         "schema": {
-                            "$ref": "#/components/schemas/Boards"
+                            "$ref": "#/components/schemas/Columns"
                         }
                     }
                 }
@@ -1184,25 +1184,25 @@
                     "$ref": "#/components/schemas/Task"
                 }
             },
-            "BoardCreation": {
+            "ColumnCreation": {
                 "type": "object",
                 "properties": {
                     "title": {
                         "type": "string",
-                        "example": "Board name"
+                        "example": "Column name"
                     }
                 }
             },
-            "BoardUpdate": {
+            "ColumnUpdate": {
                 "type": "object",
                 "properties": {
                     "title": {
                         "type": "string",
-                        "example": "Board name"
+                        "example": "Column name"
                     }
                 }
             },
-            "Board": {
+            "Column": {
                 "type": "object",
                 "properties": {
                     "id": {
@@ -1211,7 +1211,7 @@
                     },
                     "title": {
                         "type": "string",
-                        "example": "Board name"
+                        "example": "Column name"
                     },
                     "ownerId": {
                         "type": "integer",
@@ -1219,16 +1219,16 @@
                     }
                 }
             },
-            "Boards": {
+            "Columns": {
                 "type": "array",
                 "items": {
-                    "$ref": "#/components/schemas/Board"
+                    "$ref": "#/components/schemas/Column"
                 }
             },
             "CardCreation": {
                 "type": "object",
                 "properties": {
-                    "boardId": {
+                    "columnId": {
                         "type": "integer"
                     },
                     "title": {
@@ -1245,7 +1245,7 @@
             "CardUpdate": {
                 "type": "object",
                 "properties": {
-                    "boardId": {
+                    "columnId": {
                         "type": "integer"
                     },
                     "title": {
