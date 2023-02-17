@@ -333,7 +333,7 @@
                 },
                 "responses": {
                     "201": {
-                        "$ref": "#/components/responses/TasksResponse"
+                        "$ref": "#/components/responses/TaskResponse"
                     },
                     "400": {
                         "$ref": "#/components/responses/ValidationErrorResponse"
