@@ -1202,6 +1202,10 @@
                     "title": {
                         "type": "string",
                         "example": "Column name"
+                    },
+                    "order": {
+                        "type": "integer",
+                        "example": 1
                     }
                 }
             },
@@ -1211,6 +1215,10 @@
                     "title": {
                         "type": "string",
                         "example": "Column name"
+                    },
+                    "order": {
+                        "type": "integer",
+                        "example": 1
                     }
                 }
             },
@@ -1226,6 +1234,10 @@
                         "example": "Column name"
                     },
                     "ownerId": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "order": {
                         "type": "integer",
                         "example": 1
                     }
@@ -1251,6 +1263,10 @@
                     },
                     "participant": {
                         "type": "string"
+                    },
+                    "order": {
+                        "type": "integer",
+                        "example": 1
                     }
                 }
             },
@@ -1268,6 +1284,10 @@
                     },
                     "participant": {
                         "type": "string"
+                    },
+                    "order": {
+                        "type": "integer",
+                        "example": 1
                     }
                 }
             },
@@ -1285,6 +1305,10 @@
                     },
                     "participant": {
                         "type": "string"
+                    },
+                    "order": {
+                        "type": "integer",
+                        "example": 1
                     }
                 }
             },
