@@ -6,7 +6,7 @@
     },
     "servers": [
         {
-            "url": "http://143.42.31.53:8080/api",
+            "url": "https://top-twelve.online:8080/api",
             "description": "Deployed"
         },
         {
