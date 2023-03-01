@@ -50,16 +50,10 @@
                             "schema": {
                                 "type": "object",
                                 "properties": {
-                                    "key": {
-                                        "type": "string"
-                                    },
-                                    "id": {
-                                        "type": "number"
-                                    },
-                                    "name": {
-                                        "type": "string"
-                                    },
                                     "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
                                         "type": "string"
                                     }
                                 }
@@ -1066,8 +1060,14 @@
                         "type": "string",
                         "format": "uuid"
                     },
-                    "user": {
-                        "$ref": "#/components/schemas/User"
+                    "id": {
+                        "type": "integer"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
                     }
                 }
             },
